@@ -9,7 +9,7 @@ gitRouter.get('/github', passport.authenticate('gitHubAuth', {scope: ['user:emai
 
 gitRouter.get('/github/callback', passport.authenticate('gitHubAuth', {scope: ['user:email'], session:false, failureRedirect: '/'}),
 async (req, res) => {
-    let {userMail, userName, lastName, userRoll, } = await req.user
+    let {userMail, userName, lastName, userRoll} = await req.user
     req.session.userMail = userMail
     req.session.userName = userName
     req.session.lastName = lastName || ' '

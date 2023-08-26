@@ -14,6 +14,7 @@ const initializePassportGit = () => {
                 try {
                 if(profile._json.email) {
                     let foundUser = await User.findOne({userMail: profile._json.email})
+                    console.log(foundUser)
                     if(!foundUser) {
                         let fullName = profile._json.name.split(' ')
                         let createdUser = await User.create({
